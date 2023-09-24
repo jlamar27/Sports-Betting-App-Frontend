@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Games from './components/Games.js';
@@ -7,8 +7,14 @@ import Profile from './components/Profile.js';
 import Home from './components/Home.js';
 import SignIn from './components/SignIn.js';
 import SignUp from './components/SignUp.js';
+import { AuthContext } from './context/AuthContext.js';
+
+
 
 function App() {
+  // const { isLoggedIn, setIsLoggedIn } = useContext (AuthContext)
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
+
   return (
     <div className="App">
         <Navbar />

@@ -22,7 +22,7 @@ export async function signup(username, password) {
   return response.data
 }
 
-export async function isTokenValid() {
-  const response = await api.get('/auth/isTokenValid')
-  return response.data
-}
+// export async function isTokenValid() {
+//   const response = await api.get('/auth/isTokenValid')
+//   return response.data
+// }

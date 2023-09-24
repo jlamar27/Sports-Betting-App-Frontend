@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
 export default function Navbar() {
+
+    const { isLoggedIn, setIsLoggedIn, handleLogout } = useContext(AuthContext)
+
   return (
     <div className="navbar ">
     <button className="nav-button">
@@ -15,6 +19,19 @@ export default function Navbar() {
     <button className="nav-button">
         <Link to="/">Home</Link>
     </button>
+
+    {
+    isLoggedIn ? (
+        <button className="nav-button" onClick={handleLogout}>
+            Log Out
+        </button>
+    ) : (
+        <button className="nav-button">
+            
+            <Link to="/auth/signin">Log In</Link>
+        </button>
+    )
+}
 
     
     </div>
