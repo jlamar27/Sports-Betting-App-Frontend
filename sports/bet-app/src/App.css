@@ -105,3 +105,36 @@
   margin-top: 10px;
 }
 
+.Games-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.match-list {
+  width: 70%; 
+}
+
+.bet-slip {
+  width: 30%;
+  background-color: #f4f4f4; 
+  padding: 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.bet-slip h2 {
+  font-size: 18px;
+}
+
+.bet-slip-item {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 12px;
+}
