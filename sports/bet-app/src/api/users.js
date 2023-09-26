@@ -1,6 +1,6 @@
-// import api from "./apiConfig";
+import api from "./apiConfig.js";
 
-// export async function getProfile(handle) {
-//   const response = await api.get(`/user/${handle}`)
-//   return response.data
-// }
+export async function getProfile(id) {
+  const response = await api.get(`/user/${id}`)
+  return response.data
+}
