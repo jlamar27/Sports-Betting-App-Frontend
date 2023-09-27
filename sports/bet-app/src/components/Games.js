@@ -8,6 +8,22 @@ function Games() {
   const [loading, setLoading] = useState(true);
   const [betSlip, setBetSlip] = useState([]);
 
+//   const calculateReturn = (price, value) => {
+//     const odds = parseFloat(price);
+//     const betValue = parseFloat(value);
+//     if (isNaN(odds) || isNaN(betValue) || betValue <= 0) return 'N/A';
+
+//     if (odds > 0) {
+//         return ((odds / 100) * betValue + betValue).toFixed(2);
+//     }
+
+//     if (odds < 0) {
+//         return ((100 / Math.abs(odds)) * betValue + betValue).toFixed(2);
+//     }
+//     return 'N/A';
+//   };
+
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -16,23 +32,32 @@ function Games() {
             localStorage.setItem("matches", JSON.stringify(response.data));
             setMatches(response.data);
             setLoading(false);
+            
         } else {
-          const cachedMatches = JSON.parse(localStorage.getItem("matches"))
-          setMatches(cachedMatches);
-          setLoading(false);
+            const cachedMatches = JSON.parse(localStorage.getItem("matches"))
+            setMatches(cachedMatches);
+            setLoading(false);
         }
-      } catch (error) {
+    } catch (error) {
         console.error("Error fetching the data", error);
         setLoading(false);
       }
     }
     fetchData();
   }, []);
+  console.log(matches)
 
   const addToBetSlip = (bet) => {
     setBetSlip((prev) => {
+    //   const initialBetValue = 0
+    //   const newBet = {
+    //     ...bet,
+    //     betValue: initialBetValue,
+    //     potentialReturn: calculateReturn(bet.price, initialBetValue),
+    //   }
       const newBetSlip = [...prev, bet];
       localStorage.setItem("betSlip", JSON.stringify(newBetSlip));
+      console.log(newBetSlip)
       return newBetSlip;
     });
   };
@@ -48,7 +73,7 @@ function Games() {
             <>
               <div className="match-list">
                 {matches.map((match) => (
-                  <Game key={match.id} match={match} addToBetSlip={addToBetSlip} />
+                  <Game key={match.id} match={match} addToBetSlip={addToBetSlip} gameid={match.id} />
                 ))}
               </div>
               <BetSlip betSlip={betSlip} updateBetSlip={setBetSlip} />
