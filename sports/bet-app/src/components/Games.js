@@ -8,22 +8,6 @@ function Games() {
   const [loading, setLoading] = useState(true);
   const [betSlip, setBetSlip] = useState([]);
 
-//   const calculateReturn = (price, value) => {
-//     const odds = parseFloat(price);
-//     const betValue = parseFloat(value);
-//     if (isNaN(odds) || isNaN(betValue) || betValue <= 0) return 'N/A';
-
-//     if (odds > 0) {
-//         return ((odds / 100) * betValue + betValue).toFixed(2);
-//     }
-
-//     if (odds < 0) {
-//         return ((100 / Math.abs(odds)) * betValue + betValue).toFixed(2);
-//     }
-//     return 'N/A';
-//   };
-
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -49,12 +33,6 @@ function Games() {
 
   const addToBetSlip = (bet) => {
     setBetSlip((prev) => {
-    //   const initialBetValue = 0
-    //   const newBet = {
-    //     ...bet,
-    //     betValue: initialBetValue,
-    //     potentialReturn: calculateReturn(bet.price, initialBetValue),
-    //   }
       const newBetSlip = [...prev, bet];
       localStorage.setItem("betSlip", JSON.stringify(newBetSlip));
       console.log(newBetSlip)

@@ -34,9 +34,13 @@ function BetSlip({ betSlip, updateBetSlip }) {
     const token = localStorage.getItem('token')
     try {
         const mergedBetSlip = betSlip.map((bet, index) => {
+            const betValue = betValues[index] || 0;
+            const potentialReturn = parseFloat(calculateReturn(bet.price, betValue));
+
           return {
             ...bet,
-            betValue: betValues[index] || 0, // or use a default value other than 0 if needed
+            betValue,
+            potentialReturn,
           };
         });
     
@@ -55,11 +59,7 @@ function BetSlip({ betSlip, updateBetSlip }) {
         console.log(response.data);
       } catch (error) {
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.error('Error response from server', error.response.data);
-        console.error('Error response status', error.response.status);
-        console.error('Error response headers', error.response.headers);
+       
       } else if (error.request) {
         // The request was made but no response was received
         console.error('No response received', error.request);
