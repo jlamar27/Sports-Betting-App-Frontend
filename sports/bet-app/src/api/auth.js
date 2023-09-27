@@ -4,7 +4,7 @@ const LOCALSTORAGE_KEY = process.env.REACT_APP_LOCALSTORAGE_KEY
 
 export async function signin(username, password) {
   // Make request to singin user to retrieve a token
-  const response = await api.post('http://localhost:3000/api/auth/signin', {
+  const response = await api.post('/auth/signin', {
       username, password
   })
 
@@ -15,7 +15,7 @@ export async function signin(username, password) {
 }
 
 export async function signup(username, password) {
-  const response = await api.post('http://localhost:3000/api/auth/signup', {
+  const response = await api.post('/auth/signup', {
       username, password
   })
 
@@ -23,6 +23,8 @@ export async function signup(username, password) {
 }
 
 export async function isTokenValid() {
-  const response = await api.get('/auth/isTokenValid')
+  const response = await api.get('/auth/isValidToken')
+  console.log(response, "This is token response");
   return response.data
 }
+
