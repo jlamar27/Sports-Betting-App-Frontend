@@ -146,7 +146,7 @@
   display: center;
   justify-content: center;
   height: 45vh;
-  width: 30vw;
+  width: 29.5vw;
   gap: 10px;
   padding-left: 2em;
   padding-right: 2em;
@@ -162,8 +162,8 @@
   justify-content: center;
   margin: 0 auto;
   margin-top: 32px;
-  height: 45vh;
-  width: 37vw;
+  height: 45.5vh;
+  width: 33.8vw;
 }
 
 #Log-in-heading {
@@ -217,12 +217,12 @@
   border: none;
   outline: none;
   transition: .2s ease-in-out;
-  background-image: linear-gradient(163deg, #009dff 10%, #568de0 90%);
+  background-image: linear-gradient(163deg, #009dff 10%, #7aafec 90%);
   color: rgb(255, 255, 255);
 }
 
 .Log-in-button1:hover {
-  background-image: linear-gradient(163deg, #f0f80a 20%,#906d1bf1 80%);
+  background-image: linear-gradient(163deg, #44cbf8 20%,#4c1ee3 80%);
   color: #ffffff;
   box-shadow: 1px 1px 10px 1px #ffffff;
 }
