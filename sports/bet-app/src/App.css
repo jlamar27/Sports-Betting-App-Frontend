@@ -1,8 +1,10 @@
 .App {
   text-align: center;
   font-family: Arial, sans-serif;
-  background-color: #282C34; /* Set the background color here */
+  background-color: #282c34; /* Set the background color here */
+  height: 100vh;
 }
+
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -117,6 +119,7 @@
   border-radius: 5px;
   font-size: 12px;
 }
+
 .gold-container{
   background-color: #27A44A;
   color: #252543;
@@ -180,4 +183,110 @@
   color: #9e9da1;
   font-size: 14px;
   text-align: center;
+}
+
+/* new sign in form */
+.Log-in {
+  display: center;
+  justify-content: center;
+  height: 45vh;
+  width: 29.5vw;
+  gap: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.4em;
+  background-color: #171717;
+  border-radius: 20px;
+}
+.Log-in-card {
+  background-image: linear-gradient(163deg, #13bded 0%, #3700ff 100%);
+  border-radius: 22px;
+  transition: all .3s;
+  display: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 32px;
+  height: 45.5vh;
+  width: 33.8vw;
+}
+
+#Log-in-heading {
+  text-align: center;
+  margin: 2em;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+}
+
+.Log-in-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: #00ffff;
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: rgb(255, 255, 255);
+}
+
+.Log-in-form .btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 2.5em;
+}
+
+.Log-in-button1 {
+  padding: 0.5em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  transition: .2s ease-in-out;
+  background-image: linear-gradient(163deg, #009dff 10%, #7aafec 90%);
+  color: rgb(255, 255, 255);
+}
+
+.Log-in-button1:hover {
+  background-image: linear-gradient(163deg, #44cbf8 20%,#4c1ee3 80%);
+  color: #ffffff;
+  box-shadow: 1px 1px 10px 1px #ffffff;
+}
+
+
+.Log-in-card2 {
+  border-radius: 0;
+  transition: all .2s;
+}
+
+.Log-in-card2:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+
+.Log-in-card:hover {
+  box-shadow: 0px 0px 30px 1px #6423ff;
+}
+
+.log-in-question
+{
+  color: #ddd;
 }

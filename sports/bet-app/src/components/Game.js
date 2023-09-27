@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Game({ match, addToBetSlip }) {
+function Game({ match, addToBetSlip, gameid }) {
   const eventDate = new Date(match.commence_time);
   const options = {
     timeZone: "America/New_York",
@@ -37,6 +37,7 @@ function Game({ match, addToBetSlip }) {
             team: match.home_team,
             point: spreadOddsHome?.point,
             price: spreadOddsHome?.price,
+            match: gameid,
           })}>
             Spread {spreadOddsHome ? `${spreadOddsHome.point} (${spreadOddsHome.price})` : "N/A"}
           </button>
@@ -46,6 +47,7 @@ function Game({ match, addToBetSlip }) {
             team: match.home_team,
             point: overUnderPoint,
             price: overUnderOddsOver?.price,
+            match: gameid,
           })}>
             O/U {overUnderPoint !== "N/A" ? `Over ${overUnderPoint} (${overUnderOddsOver?.price || "N/A"})` : "N/A"}
           </button>
@@ -53,6 +55,8 @@ function Game({ match, addToBetSlip }) {
             type: "Moneyline",
             team: match.home_team,
             price: moneylineOddsHome?.price,
+            match: gameid,
+           
           })}>
             Moneyline {moneylineOddsHome ? moneylineOddsHome.price : "N/A"}
           </button>
@@ -66,6 +70,7 @@ function Game({ match, addToBetSlip }) {
             team: match.away_team,
             point: spreadOddsAway?.point,
             price: spreadOddsAway?.price,
+            match: gameid,
           })}>
             Spread {spreadOddsAway ? `${spreadOddsAway.point} (${spreadOddsAway.price})` : "N/A"}
           </button>
@@ -75,6 +80,7 @@ function Game({ match, addToBetSlip }) {
             team: match.away_team,
             point: overUnderPoint,
             price: overUnderOddsUnder?.price,
+            match: gameid,
           })}>
             O/U {overUnderPoint !== "N/A" ? `Under ${overUnderPoint} (${overUnderOddsUnder?.price || "N/A"})` : "N/A"}
           </button>
@@ -82,6 +88,7 @@ function Game({ match, addToBetSlip }) {
             type: "Moneyline",
             team: match.away_team,
             price: moneylineOddsAway?.price,
+            match: gameid,
           })}>
             Moneyline {moneylineOddsAway ? moneylineOddsAway.price : "N/A"}
           </button>
