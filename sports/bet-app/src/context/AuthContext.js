@@ -12,9 +12,9 @@ function AuthContextProvider({children}) {
     setIsLoggedIn(false);
   };
 
-//   useEffect(() => {
-//     isTokenValid().then((response) => setIsLoggedIn(response.valid));
-//   }, []);
+  useEffect(() => {
+    isTokenValid().then((response) => setIsLoggedIn(response.valid))
+  }, []);
 
   return (
     <AuthContext.Provider value={{

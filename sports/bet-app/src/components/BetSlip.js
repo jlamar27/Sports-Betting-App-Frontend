@@ -47,7 +47,7 @@ function BetSlip({ betSlip, updateBetSlip }) {
         console.log('mergedBetSlip', mergedBetSlip);
 
         const response = await axios.post(
-          `http://localhost:3000/bet/${userId}`,
+          `http://localhost:3000/api/bet/${userId}`,
           { bets: mergedBetSlip },
           {
             headers: {
