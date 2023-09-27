@@ -13,7 +13,18 @@ function AuthContextProvider({children}) {
   };
 
   useEffect(() => {
-    isTokenValid().then((response) => setIsLoggedIn(response.valid))
+    console.log("Hereeeeeeeeee")
+    // isTokenValid().then((response) => console.log(response))
+    // isTokenValid().then((response) => setIsLoggedIn(response.valid))
+    async function isValid() {
+      try{
+        const response = await isTokenValid();
+        setIsLoggedIn(response.valid);
+      } catch(error) {
+        console.log("Error token is invalid", error);
+      }
+    }
+    isValid();
   }, []);
 
   return (

@@ -24,5 +24,7 @@ export async function signup(username, password) {
 
 export async function isTokenValid() {
   const response = await api.get('/auth/isValidToken')
+  console.log(response, "This is token response");
   return response.data
 }
+

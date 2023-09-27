@@ -4,7 +4,7 @@ import axios from 'axios'
 // Define the local storage key 
 const LOCALSTORAGE_KEY = process.env.REACT_APP_LOCALSTORAGE_KEY
 const API_URL = process.env.REACT_APP_ENVIRONMENT === "development" ?
-  'http://localhost:3000/api/':
+  process.env.REACT_APP_LOCAL_API_URL:
   'http://<my hosted api>'
 console.log(API_URL)
 // Create a re-useable axios object, with our API as the baseURL
