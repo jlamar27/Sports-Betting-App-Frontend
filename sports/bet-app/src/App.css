@@ -146,7 +146,7 @@
   display: center;
   justify-content: center;
   height: 45vh;
-  width: 30vw;
+  width: 29.5vw;
   gap: 10px;
   padding-left: 2em;
   padding-right: 2em;
@@ -162,8 +162,8 @@
   justify-content: center;
   margin: 0 auto;
   margin-top: 32px;
-  height: 45vh;
-  width: 37vw;
+  height: 45.5vh;
+  width: 33.8vw;
 }
 
 #Log-in-heading {
