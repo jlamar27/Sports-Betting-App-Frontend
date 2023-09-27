@@ -217,12 +217,12 @@
   border: none;
   outline: none;
   transition: .2s ease-in-out;
-  background-image: linear-gradient(163deg, #009dff 10%, #568de0 90%);
+  background-image: linear-gradient(163deg, #009dff 10%, #7aafec 90%);
   color: rgb(255, 255, 255);
 }
 
 .Log-in-button1:hover {
-  background-image: linear-gradient(163deg, #f0f80a 20%,#906d1bf1 80%);
+  background-image: linear-gradient(163deg, #44cbf8 20%,#4c1ee3 80%);
   color: #ffffff;
   box-shadow: 1px 1px 10px 1px #ffffff;
 }
