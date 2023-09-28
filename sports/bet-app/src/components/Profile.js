@@ -1,43 +1,29 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// import { getProfile } from "../api/users"
-
 import Image from "../images/bag.png";
-
-// function Profile() {
-// const params = useParams()
-// const [profile, setProfile] = useState({})
-
-//   // Fetch user by url param /:handle
-//   // useEffect(() => {
-//   //   getProfile(params.handle).then(setProfile)
-//   // }, [params.handle])
-
-//   // Console log the profile when it changes
-//   useEffect(() => {
-//     console.log(profile);
-//   }, [profile])
-
-//   return (
-//     <div>
-//       <h1>{profile.username}</h1>
-//       <pre>{profile.handle}</pre>
-//       <hr />
-//     </div>
-//   )
-// }
+import { addCredits } from "../api/users";
 
 function Profile() {
   const [userName, setUserName] = useState("Username");
   const [credits, setCredits] = useState(1000);
   const [betHistory, setBetHistory] = useState([]);
+  const userId = localStorage.getItem('userId') // Replace with the actual user id, possibly fetched from state, context, or local storage.
 
   useEffect(() => {
+    // Here you might also want to fetch the initial state of the user from the server.
     setUserName("Username");
     setCredits(1000);
-    setBetHistory(0);
+    setBetHistory([]);
   }, []);
-
+  
+  console.log("Profile compnent ", userId)
+  async function handleAddCredits(event) {
+    console.log("handleAddCredits ", event)
+    event.preventDefault();
+    // Replace with your actual API URL and user ID
+    
+    await addCredits(250,userId)    
+  };
+  
   return (
     <form>
       <div className="gold-container">
@@ -46,7 +32,7 @@ function Profile() {
             <img src={Image} className="image" />
             <h2>Welcome, {userName}!</h2>
             <h3 className="number-h1">Credits: {credits}</h3>
-            <button className="add-credit-button"> Add Credits</button>
+            <button className="add-credit-button" onClick={handleAddCredits}> Add Credits</button>
           </div>
         </div>
       </div>
@@ -55,6 +41,7 @@ function Profile() {
       </div>
     </form>
   );
+  console.log('added credits')
 }
 
 export default Profile;

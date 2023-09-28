@@ -41,6 +41,7 @@ function Games() {
   };
 
   return (
+    
     <div className="Games-container">
       <header className="Games">
         <h1>NFL Matches</h1>
@@ -60,6 +61,7 @@ function Games() {
         </div>
       </header>
     </div>
+    
   );
 }
 
