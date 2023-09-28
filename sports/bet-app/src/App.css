@@ -3,6 +3,7 @@
   font-family: Arial, sans-serif;
   background-color: #282c34; /* Set the background color here */
   height: 100vh;
+  overflow: hidden;
 }
 
 .App-header {
@@ -14,6 +15,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.home-header{
+  font-family: 'Staatliches', cursive;
+}
+
 .match-list {
   display: flex;
   flex-direction: column;
@@ -21,6 +26,7 @@
   gap: 20px;
   margin-top: 20px;
 }
+
 .match-card {
   background-color: #1E1E1E;
   border: 1px solid #333;
@@ -30,28 +36,33 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   color: #FFFFFF;
 }
+
 .match-card .date-time {
   color: #999999;
   text-align: center;
   margin-bottom: 10px;
 }
+
 .match-card .bookmaker {
   color: #AAAAAA;
   font-size: 0.9em;
   text-align: center;
 }
+
 .team {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
+
 .team-bet-buttons {
   display: flex;
   gap: 10px;
 }
+
 .team-bet-buttons button {
-  background-color: #27A44A;
+  background-color: #27a44a;
   color: #FFFFFF; /* Changed color for better readability */
   border: none;
   border-radius: 4px;
@@ -60,58 +71,77 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .team-bet-buttons button:hover {
-  background-color: #1F8E39;
+  background-color: #1f8e39;
 }
+
 .home-container {
   padding: 20px;
   font-family: Arial, sans-serif;
   color: #333;
-  background-color: #F4F4F4;
 }
+
 .home-header {
-  background-color: #007A33;
-  color: white;
+  background-color: #13bded;
+  color: rgb(255, 255, 255);
   padding: 20px 0;
   text-align: center;
+  width: 60vw;
+  height: 14vh;
+  display: inline-block;
 }
+.home-header >p {
+  color: #433025;
+}
+
 .faq-section {
-  margin-top: 40px;
+  margin-top: 15px;
+  margin-bottom: 20px;
   padding: 20px;
   background-color: white;
-  border: 1px solid #ccc;
+  border: 3px solid #f2fe0a;
   border-radius: 10px;
+  opacity: 80%;
+  width: 40vw;
+  display: inline-block;
 }
-.faq-item {
-  margin-bottom: 20px;
-}
+
+
 .faq-item h3 {
-  color: #007A33;
+  color: #339059;
 }
+
 .faq-item p {
   margin-top: 10px;
 }
+
 .Games-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .content-container {
   display: flex;
   flex-direction: row;
 }
+
 .match-list {
-  width: 70%;
+  width: 70%; 
 }
+
 .bet-slip {
   width: 30%;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4; 
   padding: 1rem;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
+
 .bet-slip h2 {
   font-size: 18px;
 }
+
 .bet-slip-item {
   margin-bottom: 1rem;
   padding: 1rem;
@@ -119,13 +149,13 @@
   border-radius: 5px;
   font-size: 12px;
 }
-
+/* Wallet css */
 .gold-container{
   background-color: #27A44A;
   color: #252543;
 }
 
-.card {
+.card-wallet {
   width: 275px;
   height: auto;
   display: inline-block;
@@ -142,11 +172,11 @@
   cursor: pointer;
 }
 
-.card:hover {
+.card-wallet:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card > .image {
+.card-wallet > .image {
   width: 70px;
   height: 70px;
   transition: all 0.1s ease-in-out;
@@ -157,7 +187,7 @@
   height: 80px;
 }
 
-.card > .number-h1 {
+.card-wallet > .number-h1 {
   font-size: 15px;
   font-weight: bold;
   padding: 5px 7px;
@@ -173,20 +203,34 @@
   color: #ddd;
 }
 
-.card > .h1 {
+.card-wallet > .h1 {
   font-size: 17px;
   font-weight: bold;
   text-align: center;
 }
 
-.card > .p {
+.card-wallet > .p {
   color: #9e9da1;
   font-size: 14px;
   text-align: center;
 }
 
+
 /* new sign in form */
 .Log-in {
+  display: center;
+  justify-content: center;
+  height: 45vh;
+  width: 29.5vw;
+  gap: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.4em;
+  background-color: #171717;
+  border-radius: 20px;
+}
+
+.Sign-up {
   display: center;
   justify-content: center;
   height: 45vh;
@@ -209,15 +253,49 @@
   height: 45.5vh;
   width: 33.8vw;
 }
+.Sign-up-card {
+  background-image: linear-gradient(163deg, #13bded 0%, #3700ff 100%);
+  border-radius: 22px;
+  transition: all .3s;
+  display: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 32px;
+  height: 45.5vh;
+  width: 33.8vw;
+}
 
 #Log-in-heading {
   text-align: center;
-  margin: 2em;
+  margin: 1em;
   color: rgb(255, 255, 255);
-  font-size: 1.2em;
+  font-size: 30px;
+  font-family: 'Staatliches', cursive;
+}
+
+#Sign-up-heading{
+  text-align: center;
+  margin: 1em;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  font-family: 'Staatliches', cursive;
 }
 
 .Log-in-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.Sign-up-field{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,7 +323,7 @@
   color: rgb(255, 255, 255);
 }
 
-.Log-in-form .btn {
+.btn {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -271,8 +349,31 @@
   box-shadow: 1px 1px 10px 1px #ffffff;
 }
 
+.Sign-up-button{
+  padding: 0.5em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  transition: .2s ease-in-out;
+  background-image: linear-gradient(163deg, #009dff 10%, #7aafec 90%);
+  color: rgb(255, 255, 255);
+}
+
+.Sign-up-button:hover {
+  background-image: linear-gradient(163deg, #44cbf8 20%,#4c1ee3 80%);
+  color: #ffffff;
+  box-shadow: 1px 1px 10px 1px #ffffff;
+}
 
 .Log-in-card2 {
+  border-radius: 0;
+  transition: all .2s;
+}
+
+.Sign-up-card2 {
   border-radius: 0;
   transition: all .2s;
 }
@@ -281,12 +382,32 @@
   transform: scale(0.98);
   border-radius: 20px;
 }
+.Sign-up-card2:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
 
 .Log-in-card:hover {
   box-shadow: 0px 0px 30px 1px #6423ff;
 }
-
-.log-in-question
+.Sign-up-card:hover {
+  box-shadow: 0px 0px 30px 1px #6423ff;
+}
+.log-in-question 
 {
   color: #ddd;
+}
+.Sign-up-question
+{
+  color: #f7f7f7;
+}
+/* Home page css */
+.bg {
+  /* width: 100vw; */
+  /* height: 100vh; */
+  z-index: 0;
+  background: url('./images/bleachers.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
