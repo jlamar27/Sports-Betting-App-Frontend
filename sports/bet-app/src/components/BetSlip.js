@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { createBet } from '../api/bet';
 
 function BetSlip({ betSlip, updateBetSlip }) {
   const [betValues, setBetValues] = useState({});
@@ -44,19 +44,10 @@ function BetSlip({ betSlip, updateBetSlip }) {
           };
         });
     
-        console.log('mergedBetSlip', mergedBetSlip);
+        console.log(userId, mergedBetSlip);
 
-        const response = await axios.post(
-          `http://localhost:3000/api/bet/${userId}`,
-          { bets: mergedBetSlip },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        
-        console.log(response.data);
+        await createBet(userId, mergedBetSlip);
+
       } catch (error) {
       if (error.response) {
        
