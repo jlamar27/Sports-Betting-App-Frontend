@@ -1,14 +1,16 @@
+import { addCredits } from "../api/users";
 import { useEffect, useState, useContext } from "react";
 import { getProfile } from "../api/users"
 import { getSingleBet } from "../api/bet";
 import Bet from "./Bet";
 
 
-
 function Profile() {
   const [userName, setUserName] = useState("Username");
   const [credits, setCredits] = useState(1000);
   const [betHistory, setBetHistory] = useState([]);
+
+ 
   const userId = localStorage.getItem('userId');
 
   useEffect(() => {
@@ -29,11 +31,18 @@ function Profile() {
     }
     grabUserInfo();
   }, []);
-
+  
+  console.log("Profile compnent ", userId)
+  async function handleAddCredits(event) {
+    console.log("handleAddCredits ", event)
+    event.preventDefault();
+    // Replace with your actual API URL and user ID
+    
+    await addCredits(250,userId)    
+  };
+  
   return (
     <div>
-
-
       <div className="gold-container">
         <div className="card wallet">
           <div>
@@ -41,7 +50,7 @@ function Profile() {
             <h2>Welcome, {userName}!</h2>
             <h3 className="number-h1">Credits: {credits}</h3>
             <form>
-              <button className="add-credit-button"> Add Credits</button>
+               <button className="add-credit-button" onClick={handleAddCredits}> Add Credits</button>
             </form>
           </div>
         </div>
@@ -56,6 +65,7 @@ function Profile() {
       </div>
     </div>
   );
+  console.log('added credits')
 }
 
 export default Profile;

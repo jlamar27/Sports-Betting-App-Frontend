@@ -38,6 +38,7 @@ function Game({ match, addToBetSlip, gameid }) {
             point: spreadOddsHome?.point,
             price: spreadOddsHome?.price,
             match: gameid,
+            commence_time: match.commence_time,
           })}>
             Spread {spreadOddsHome ? `${spreadOddsHome.point} (${spreadOddsHome.price})` : "N/A"}
           </button>
@@ -48,6 +49,7 @@ function Game({ match, addToBetSlip, gameid }) {
             point: overUnderPoint,
             price: overUnderOddsOver?.price,
             match: gameid,
+            commence_time: match.commence_time,
           })}>
             O/U {overUnderPoint !== "N/A" ? `Over ${overUnderPoint} (${overUnderOddsOver?.price || "N/A"})` : "N/A"}
           </button>
@@ -56,6 +58,7 @@ function Game({ match, addToBetSlip, gameid }) {
             team: match.home_team,
             price: moneylineOddsHome?.price,
             match: gameid,
+            commence_time: match.commence_time,
            
           })}>
             Moneyline {moneylineOddsHome ? moneylineOddsHome.price : "N/A"}
@@ -71,6 +74,7 @@ function Game({ match, addToBetSlip, gameid }) {
             point: spreadOddsAway?.point,
             price: spreadOddsAway?.price,
             match: gameid,
+            commence_time: match.commence_time,
           })}>
             Spread {spreadOddsAway ? `${spreadOddsAway.point} (${spreadOddsAway.price})` : "N/A"}
           </button>
@@ -81,6 +85,7 @@ function Game({ match, addToBetSlip, gameid }) {
             point: overUnderPoint,
             price: overUnderOddsUnder?.price,
             match: gameid,
+            commence_time: match.commence_time,
           })}>
             O/U {overUnderPoint !== "N/A" ? `Under ${overUnderPoint} (${overUnderOddsUnder?.price || "N/A"})` : "N/A"}
           </button>
@@ -89,6 +94,7 @@ function Game({ match, addToBetSlip, gameid }) {
             team: match.away_team,
             price: moneylineOddsAway?.price,
             match: gameid,
+            commence_time: match.commence_time,
           })}>
             Moneyline {moneylineOddsAway ? moneylineOddsAway.price : "N/A"}
           </button>

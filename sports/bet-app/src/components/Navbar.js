@@ -20,6 +20,10 @@ export default function Navbar() {
         <Link to="/">Home</Link>
     </button>
 
+    <button className="nav-button">
+        <Link to="/scores">Scores</Link>
+    </button>
+
     {
     isLoggedIn ? (
         <button className="nav-button" onClick={handleLogout}>

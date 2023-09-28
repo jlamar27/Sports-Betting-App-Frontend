@@ -52,10 +52,8 @@ function BetSlip({ betSlip, updateBetSlip }) {
       if (error.response) {
        
       } else if (error.request) {
-        // The request was made but no response was received
         console.error('No response received', error.request);
       } else {
-        // Something happened in setting up the request that triggered an Error
         console.error('Error setting up the request', error.message);
       }
     }
@@ -88,6 +86,7 @@ function BetSlip({ betSlip, updateBetSlip }) {
             <p>
               Potential Return: {calculateReturn(bet.price, betValues[index] || 0)} coins
             </p>
+            <p>Commence Time: {new Date(bet.commence_time).toLocaleString("en-US")}</p>
             <label htmlFor={`betValue-${index}`}>Bet Value:</label>
             <input
               type="number"
