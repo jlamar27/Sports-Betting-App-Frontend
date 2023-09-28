@@ -6,3 +6,8 @@ export async function createBet(userId, mergedBetSlip) {
     });
     return response.data;
 }
+
+export async function getSingleBet(userId, id) {
+    const response = await api.get(`/bet/${userId}/${id}`);
+    return response.data;
+}
