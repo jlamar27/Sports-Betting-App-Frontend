@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1>Welcome to SportsBets!</h1>
+        <h1>Welcome to Gameday Gold!</h1>
         <p>Your premier destination for all things sports betting.</p>
       </header>
       <section className="faq-section">
