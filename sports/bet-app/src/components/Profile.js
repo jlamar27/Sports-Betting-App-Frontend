@@ -1,59 +1,60 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Image from "../images/bag.png";
-// import { getProfile } from "../api/users"
+import { useEffect, useState, useContext } from "react";
+import { getProfile } from "../api/users"
+import { getSingleBet } from "../api/bet";
+import Bet from "./Bet";
 
 
-// function Profile() {
-// const params = useParams()
-// const [profile, setProfile] = useState({})
-
-//   // Fetch user by url param /:handle
-//   // useEffect(() => {
-//   //   getProfile(params.handle).then(setProfile)
-//   // }, [params.handle])
-
-//   // Console log the profile when it changes
-//   useEffect(() => {
-//     console.log(profile);
-//   }, [profile])
-
-//   return (
-//     <div>
-//       <h1>{profile.username}</h1>
-//       <pre>{profile.handle}</pre>
-//       <hr />
-//     </div>
-//   )
-// }
 
 function Profile() {
   const [userName, setUserName] = useState("Username");
   const [credits, setCredits] = useState(1000);
   const [betHistory, setBetHistory] = useState([]);
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
-    setUserName("Username");
-    setCredits(1000);
-    setBetHistory(0);
+    async function grabUserInfo() {
+      const userData = await getProfile(userId);
+      setUserName(userData.username);
+      setCredits(userData.virtualMoney);
+
+      const betHistoryPromises = userData.bets.map(async (betId) => {
+        const betData = await getSingleBet(userId, betId);
+        console.log("Frontend betData :", betData);
+        return betData;
+      });
+
+      const betHistory = await Promise.all(betHistoryPromises);
+      console.log("betHistory :", betHistory);
+      setBetHistory(betHistory);
+    }
+    grabUserInfo();
   }, []);
 
   return (
-    <form>
+    <div>
+
+
       <div className="gold-container">
         <div className="card wallet">
           <div>
             <img src={Image} className="image" />
             <h2>Welcome, {userName}!</h2>
             <h3 className="number-h1">Credits: {credits}</h3>
-            <button className="add-credit-button"> Add Credits</button>
+            <form>
+              <button className="add-credit-button"> Add Credits</button>
+            </form>
           </div>
         </div>
       </div>
       <div className="bet-history">
         <h3>Bet History:</h3>
+        {
+          betHistory.map((bet, index) => (
+            <Bet key={index} bet={bet} />
+          ))
+        }
       </div>
-    </form>
+    </div>
   );
 }
 
