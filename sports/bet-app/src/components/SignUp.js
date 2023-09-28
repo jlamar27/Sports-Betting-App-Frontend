@@ -52,7 +52,7 @@ function Signup() {
      
       <span classname="Sign-up-question">
         {'Already have an account?'}
-        <Link to="/auth/signin">Go to Signin</Link>
+        <Link to="/auth/signin">Go to Sign in</Link>
         </span>
         </form>
 

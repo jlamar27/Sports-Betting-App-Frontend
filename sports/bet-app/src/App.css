@@ -3,6 +3,7 @@
   font-family: Arial, sans-serif;
   background-color: #282c34; /* Set the background color here */
   height: 100vh;
+  overflow: hidden;
 }
 
 .App-header {
@@ -79,30 +80,36 @@
   padding: 20px;
   font-family: Arial, sans-serif;
   color: #333;
-  background-color: #f4f4f4;
 }
 
 .home-header {
-  background-color: #007a33;
-  color: white;
+  background-color: #13bded;
+  color: rgb(255, 255, 255);
   padding: 20px 0;
   text-align: center;
+  width: 60vw;
+  height: 14vh;
+  display: inline-block;
+}
+.home-header >p {
+  color: #433025;
 }
 
 .faq-section {
-  margin-top: 40px;
+  margin-top: 15px;
+  margin-bottom: 20px;
   padding: 20px;
   background-color: white;
-  border: 1px solid #ccc;
+  border: 3px solid #f2fe0a;
   border-radius: 10px;
+  opacity: 80%;
+  width: 40vw;
+  display: inline-block;
 }
 
-.faq-item {
-  margin-bottom: 20px;
-}
 
 .faq-item h3 {
-  color: #007a33;
+  color: #339059;
 }
 
 .faq-item p {
@@ -393,4 +400,14 @@
 .Sign-up-question
 {
   color: #f7f7f7;
+}
+/* Home page css */
+.bg {
+  /* width: 100vw; */
+  /* height: 100vh; */
+  z-index: 0;
+  background: url('./images/bleachers.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

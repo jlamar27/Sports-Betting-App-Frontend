@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Image from "../images/bag.png";
 // import { getProfile } from "../api/users"
 
-import Image from "../images/bag.png";
 
 // function Profile() {
 // const params = useParams()
