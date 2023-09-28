@@ -12,27 +12,30 @@ function Games() {
     async function fetchData() {
       try {
         if (!localStorage.getItem("matches")) {
-            const response = await axios.get("https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=db674826a04c54b81c83dd4c0f1c48d1&regions=us&markets=h2h,spreads,totals&oddsFormat=american");
+            const response = await axios.get("https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=d486c733f9abeee8fb46d57bc84d42e1&regions=us&markets=h2h,spreads,totals&oddsFormat=american");
             localStorage.setItem("matches", JSON.stringify(response.data));
             setMatches(response.data);
             setLoading(false);
+            
         } else {
-          const cachedMatches = JSON.parse(localStorage.getItem("matches"))
-          setMatches(cachedMatches);
-          setLoading(false);
+            const cachedMatches = JSON.parse(localStorage.getItem("matches"))
+            setMatches(cachedMatches);
+            setLoading(false);
         }
-      } catch (error) {
+    } catch (error) {
         console.error("Error fetching the data", error);
         setLoading(false);
       }
     }
     fetchData();
   }, []);
+  console.log(matches)
 
   const addToBetSlip = (bet) => {
     setBetSlip((prev) => {
       const newBetSlip = [...prev, bet];
       localStorage.setItem("betSlip", JSON.stringify(newBetSlip));
+      console.log(newBetSlip)
       return newBetSlip;
     });
   };
@@ -48,10 +51,10 @@ function Games() {
             <>
               <div className="match-list">
                 {matches.map((match) => (
-                  <Game key={match.id} match={match} addToBetSlip={addToBetSlip} />
+                  <Game key={match.id} match={match} addToBetSlip={addToBetSlip} gameid={match.id} />
                 ))}
               </div>
-              <BetSlip betSlip={betSlip} />
+              <BetSlip betSlip={betSlip} updateBetSlip={setBetSlip} />
             </>
           )}
         </div>
