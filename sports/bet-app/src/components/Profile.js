@@ -3,7 +3,7 @@ import { getProfile } from "../api/users"
 import { getSingleBet } from "../api/bet";
 import Bet from "./Bet";
 
-import Image from "../images/bag.png";
+
 
 function Profile() {
   const [userName, setUserName] = useState("Username");
