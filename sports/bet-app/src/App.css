@@ -126,7 +126,7 @@ a:hover {
 
 .faq-section {
   font-family: 'Oswald', sans-serif;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 5px;
   padding: 20px;
   background-color: white;
@@ -152,7 +152,7 @@ a:hover {
 }
 .faq-section >h1{
   margin-top: -15px;
-  margin-bottom: -10px;
+  margin-bottom: 20px;
 }
 
 .Games-container {
@@ -284,13 +284,19 @@ a:hover {
 
 /* Wallet css */
 .gold-container{
-  background-color: #27A44A;
+  background-color: #9ac8a7;
   color: #252543;
+  height: 50vh;
+  width: auto;
+
+
 }
 
 .card-wallet {
-  width: 275px;
-  height: auto;
+  width: auto;
+  height: 25vh;
+  font-family: 'Staatliches', sans-serif;
+  letter-spacing: .5px;
   display: inline-block;
   flex-direction: column;
   align-items: center;
@@ -315,6 +321,7 @@ a:hover {
   transition: all 0.1s ease-in-out;
 }
 
+
 .image {
   width: 80px;
   height: 80px;
@@ -328,12 +335,38 @@ a:hover {
   color: white;
   background-color: #e57e25;
 }
-.add-credit-button
-{
-  border-radius: 5px;
-  background-color: #252543;
-  font-weight: bold;
-  color: #ddd;
+
+.card-wallet >h2 {
+  font-family: 'Staatliches', sans-serif;
+}
+
+/* credits button */
+
+.add-credit-button {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  margin: 10px;
+
+}
+
+.add-credit-button {
+  background: rgb(0,140,255);
+  box-shadow: 0 0 25px rgb(0,140,255);
+}
+
+.add-credit-button:hover {
+  box-shadow: 0 0 5px rgb(0,140,255),
+              0 0 25px rgb(0,140,255),
+              0 0 50px rgb(0,140,255),
+              0 0 100px rgb(0,140,255);
 }
 
 .card-wallet > .h1 {
@@ -581,9 +614,7 @@ a:hover {
 }
 
 /* Hover Effect (Text Color Pink) */
-.nav:hover {
-  color: #ff009b; /* Pink text color on hover */
-=======
+
 /* CSS games page */
 .team-name {
   font-family: 'Anton', sans-serif;

@@ -181,21 +181,29 @@ function Profile() {
       <div className="gold-container">
         <div className="delete-user"><button onClick={handleDeleteUser}>Delete User</button></div>
         <div className="card wallet">
+
           <div>
             <img src={Image} className="image" alt="Wallet" />
             <h2>Welcome, {userName}!</h2>
             <h3 className="number-h1">Credits: {credits}</h3>
-            <button className="add-credit-button" onClick={handleAddCredits}>Add Credits</button>
-            <button onClick={handleRefresh}>Check Bets</button>
+            <button className="add-credit-button" onClick={handleAddCredits}>Add Credits
+              </button>
+            
+            <button className="add-credit-button" onClick={handleRefresh}>Check Bets</button>
           </div>
-        </div>
       </div>
       
       <div className="bet-history">
         <h3>Bet History:</h3>
         {betHistory.map((bet, index) => (
           <Bet key={index} bet={bet}/>
+
+          // <div key={index}>
+          //   <p>{bet.betType} - {bet.team} : {bet.betValue} ({bet.price})</p>
+          //   <p>Outcome: {bet.outcome}</p>
+          // </div>
         ))}
+
       </div>
     </div>
   );
