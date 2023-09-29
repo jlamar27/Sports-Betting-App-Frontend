@@ -7,7 +7,6 @@ import Profile from './components/Profile.js';
 import Home from './components/Home.js';
 import SignIn from './components/SignIn.js';
 import SignUp from './components/SignUp.js';
-import Scores from './components/Scores.js';
 import { AuthContext } from './context/AuthContext.js';
 
 
@@ -27,7 +26,6 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/auth/signup" element={<SignUp/>} />
         <Route path="/auth/signin" element={<SignIn/>} />
-        <Route path="/scores" element={<Scores/>} />
 
         </Routes>
     </div>
