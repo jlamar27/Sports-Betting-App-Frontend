@@ -1,39 +1,40 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
+import Medal from '../images/medal.svg';
 
 export default function Navbar() {
 
     const { isLoggedIn, setIsLoggedIn, handleLogout } = useContext(AuthContext)
 
   return (
-    <div className="navbar ">
-    <button className="nav-button">
+
+    <div className="nav-bar ">
+        <img className="medal" src={Medal}></img>
+    <button className="nav" style={{ color: "#fff" }}>
         <Link to="/games">Games</Link>
-    </button>
+     </button>
 
-    <button className="nav-button">
+     <button className="nav" style={{ color: "#fff" }}>
         <Link to="/profile">My Gold</Link>
-    </button>
+     </button>
 
-    <button className="nav-button">
+     <button className="nav" style={{ color: "#fff" }}>
         <Link to="/">Home</Link>
-    </button>
+     </button>
 
-    {
-    isLoggedIn ? (
-        <button className="nav-button" onClick={handleLogout}>
-            Log Out
-        </button>
-    ) : (
-        <button className="nav-button">
+        {
+        isLoggedIn ? (
+            <button className="nav" style={{ color: "#fff" }} onClick={handleLogout}>
+                Log Out
+            </button>
+                ) : (
+            <button className="nav" style={{ color: "#fff" }}>
             
-            <Link to="/auth/signin">Log In</Link>
-        </button>
+                <Link to="/auth/signin">Log In</Link>
+             </button>
+            )
+        }
+     </div>
     )
-}
-
-    
-    </div>
-  )
 }
