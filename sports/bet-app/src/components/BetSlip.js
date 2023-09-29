@@ -83,7 +83,7 @@ function BetSlip({ betSlip, updateBetSlip }) {
             <p>Team: {bet.team}</p>
             <p>Point: {bet.point}</p>
             <p>Price: {bet.price}</p>
-            <p>
+            <p className='potential-return'>
               Potential Return: {calculateReturn(bet.price, betValues[index] || 0)} coins
             </p>
             <p>Commence Time: {new Date(bet.commence_time).toLocaleString("en-US")}</p>
@@ -95,11 +95,11 @@ function BetSlip({ betSlip, updateBetSlip }) {
               onChange={(e) => handleBetValueChange(index, e.target.value)}
               placeholder="Enter bet value"
             />
-               <button onClick={() => handleRemoveBet(index)}>Remove</button>
+               <button className="remove-bet" onClick={() => handleRemoveBet(index)}><strong>X</strong></button>
           </div>
         ))
       )}
-              {betSlip.length > 0 && <button onClick={handlePlaceBet}>Place Bet</button>}
+              {betSlip.length > 0 && <button className='place-bet' onClick={handlePlaceBet}>Place Bet</button>}
     </div>
   );
 }
