@@ -10,6 +10,15 @@ export async function addCredits(credits, id) {
  return response.data
 }
 
+export async function deleteUser(id) {
+  console.log('id to be deleted',id)
+  const response = await api.delete(`/user/${id}`)
+  return response.data
+};
+
+ 
+
+
 // export const updateUserCredits = async (userId, newCredits) => {
 //     console.log(`Update credits for user ${userId} to ${newCredits}`);
 //     // TODO: Replace with actual implementation to update user credits
