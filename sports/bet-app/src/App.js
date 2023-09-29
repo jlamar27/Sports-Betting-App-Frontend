@@ -12,7 +12,6 @@ import { AuthContext } from './context/AuthContext.js';
 
 
 function App() {
-  // const { isLoggedIn, setIsLoggedIn } = useContext (AuthContext)
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
 
   return (

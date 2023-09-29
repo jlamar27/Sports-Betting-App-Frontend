@@ -145,19 +145,6 @@ function Profile() {
     return outcomes;
   }
 
-  const updateBetOutcome = async (betId, outcome) => {
-    try {
-      const response = await axios.patch('http://localhost:8080/api/bet/update-outcome', {
-        betId, 
-        outcome
-      },);
-  
-      console.log('Bet updated successfully', response.data);
-    } catch(error) {
-      console.error('Error updating the bet', error);
-    }
-  }
-  
   return (
     <div>
       <div className="gold-container">
