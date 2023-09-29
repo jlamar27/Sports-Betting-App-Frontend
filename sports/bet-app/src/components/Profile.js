@@ -1,29 +1,29 @@
-import React, { useEffect, useState, } from "react";
+import React, { useEffect, useState, useContext} from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../context/AuthContext';
 import { getProfile } from "../api/users";
 import { getSingleBet } from "../api/bet";
 import { addCredits } from "../api/users"; 
 import { updateBet } from "../api/bet";
 import { deleteUser } from "../api/users";
 import Bet from "./Bet.js"
-
 import Image from "../images/bag.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 
 
 
 function Profile() {
+  const {isLoggedIn} = useContext(AuthContext);
+  const navigate= useNavigate();
   const [userName, setUserName] = useState("Username");
   const [credits, setCredits] = useState(1000);
   const [betHistory, setBetHistory] = useState([]);
   const [gameScores, setGameScores] = useState([]);
   const [betOutcomes, setBetOutcomes] = useState([]);
   const [scores, setScores] = useState([]);
-
-
   const userId = localStorage.getItem('userId');
 
-  const navigate = useNavigate()
 
   useEffect(() => {
     const cachedScores = localStorage.getItem("scores");
@@ -49,20 +49,28 @@ function Profile() {
   };
 
   useEffect(() => {
+    if(!isLoggedIn) {
+      navigate("/");
+    }
+  }, [isLoggedIn, navigate]);
+
+  
+  
+  useEffect(() => {
     async function fetchData() {
-      try {
-        const userData = await getProfile(userId);
-        setUserName(userData.username);
-        setCredits(userData.virtualMoney);
+try {
+      const userData = await getProfile(userId);
+      setUserName(userData.username);
+      setCredits(userData.virtualMoney);
 
-        const betHistoryPromises = userData.bets.map(async (betId) => {
-          const betData = await getSingleBet(userId, betId);
-          return betData;
-        });
+      const betHistoryPromises = userData.bets.map(async (betId) => {
+        const betData = await getSingleBet(userId, betId);
+        return betData;
+      });
 
-        const betHistory = await Promise.all(betHistoryPromises);
-        setBetHistory(betHistory);
-
+      const betHistory = await Promise.all(betHistoryPromises);
+            setBetHistory(betHistory);
+    
         const cachedScores = JSON.parse(localStorage.getItem("scores"));
         if (cachedScores) setGameScores(cachedScores);
         console.log("betHistory :", betHistory)
@@ -72,6 +80,7 @@ function Profile() {
     }
     fetchData();
   }, [userId]);
+
 
 
   useEffect(() => {
@@ -151,19 +160,11 @@ function Profile() {
   
     return outcomes;
   }
-
-  const updateBetOutcome = async (betId, outcome) => {
-    try {
-      const response = await axios.patch('http://localhost:8080/api/bet/update-outcome', {
-        betId, 
-        outcome
-      },);
   
-      console.log('Bet updated successfully', response.data);
-    } catch(error) {
-      console.error('Error updating the bet', error);
-    }
-  }
+  async function handleAddCredits(event) {
+    event.preventDefault();    
+    await addCredits(250,userId)    
+  };
   
 
   const handleDeleteUser = async (event) => {
@@ -181,27 +182,19 @@ function Profile() {
       <div className="gold-container">
         <div className="delete-user"><button onClick={handleDeleteUser}>Delete User</button></div>
         <div className="card wallet">
-
           <div>
-            <img src={Image} className="image" alt="Wallet" />
+            {/* <img src={Image} className="image" /> */}
             <h2>Welcome, {userName}!</h2>
             <h3 className="number-h1">Credits: {credits}</h3>
-            <button className="add-credit-button" onClick={handleAddCredits}>Add Credits
-              </button>
-            
-            <button className="add-credit-button" onClick={handleRefresh}>Check Bets</button>
+            <button className="add-credit-button" onClick={handleAddCredits}>Add Credits</button>
+            <button onClick={handleRefresh}>Check Bets</button>
           </div>
+        </div>
       </div>
-      
       <div className="bet-history">
         <h3>Bet History:</h3>
         {betHistory.map((bet, index) => (
           <Bet key={index} bet={bet}/>
-
-          // <div key={index}>
-          //   <p>{bet.betType} - {bet.team} : {bet.betValue} ({bet.price})</p>
-          //   <p>Outcome: {bet.outcome}</p>
-          // </div>
         ))}
 
       </div>
