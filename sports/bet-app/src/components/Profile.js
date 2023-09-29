@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import { getProfile } from "../api/users";
 import { getSingleBet } from "../api/bet";
 import { addCredits } from "../api/users"; 
 import { updateBet } from "../api/bet";
+import { deleteUser } from "../api/users";
 import Bet from "./Bet.js"
+
 import Image from "../images/bag.png";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
 
 function Profile() {
   const [userName, setUserName] = useState("Username");
@@ -17,6 +22,8 @@ function Profile() {
 
 
   const userId = localStorage.getItem('userId');
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const cachedScores = localStorage.getItem("scores");
@@ -158,9 +165,21 @@ function Profile() {
     }
   }
   
+
+  const handleDeleteUser = async (event) => {
+    event.preventDefault();
+    await deleteUser(userId)
+    localStorage.removeItem('userId')
+    localStorage.removeItem('token')
+    navigate('/')
+  }
+
+
+
   return (
     <div>
       <div className="gold-container">
+        <div className="delete-user"><button onClick={handleDeleteUser}>Delete User</button></div>
         <div className="card wallet">
           <div>
             <img src={Image} className="image" alt="Wallet" />

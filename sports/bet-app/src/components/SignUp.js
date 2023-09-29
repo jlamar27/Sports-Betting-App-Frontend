@@ -1,15 +1,17 @@
 import React from 'react'
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signup } from '../api/auth'
 
 function Signup() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()
     const response = await signup(username, password)
+    navigate('/auth/signin')
     console.log(response);
   }
 
