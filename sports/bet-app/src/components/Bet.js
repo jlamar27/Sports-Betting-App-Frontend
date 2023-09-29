@@ -8,6 +8,7 @@ export default function Bet({ bet }) {
       <p>Team: {bet.team}</p>
       <p>Point: {bet.point}</p>
       <p>Odds: {bet.price}</p>
+      <p>Winnings: {bet.potentialReturn} </p>
       <p>Outcome: {bet.outcome}</p>
     </div>
   )

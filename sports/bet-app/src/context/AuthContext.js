@@ -16,6 +16,7 @@ function AuthContextProvider({children}) {
   };
 
   useEffect(() => {
+
     async function isValid() {
       try{
         const response = await isTokenValid();

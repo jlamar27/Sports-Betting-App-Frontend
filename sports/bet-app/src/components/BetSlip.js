@@ -39,7 +39,7 @@ function BetSlip({ betSlip, updateBetSlip }) {
       });
 
       await createBet(userId, mergedBetSlip);
-      navigate('/profile'); // Navigate to Profile page after placing bet
+      navigate('/profile'); 
       
     } catch (error) {
       console.error('Error placing the bet', error);

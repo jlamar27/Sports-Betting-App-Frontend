@@ -160,11 +160,7 @@ try {
   
     return outcomes;
   }
-  
-  async function handleAddCredits(event) {
-    event.preventDefault();    
-    await addCredits(250,userId)    
-  };
+
   
 
   const handleDeleteUser = async (event) => {
@@ -174,6 +170,7 @@ try {
     localStorage.removeItem('token')
     navigate('/')
   }
+
 
 
 
