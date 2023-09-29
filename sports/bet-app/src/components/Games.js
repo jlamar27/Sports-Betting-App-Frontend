@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BetSlip from "./BetSlip";
 import Game from "./Game";
+import '../fonts/espn.woff'; 
+
+
 
 function Games() {
   const [matches, setMatches] = useState([]);
@@ -34,7 +37,8 @@ function Games() {
   return (
     <div className="Games-container">
       <header className="Games">
-        <h1>NFL Matches</h1>
+        <h1 className="gameday-gold">Gameday Gold</h1>
+        <p className="nfl-match">NFL Matches</p>
         <div className="content-container">
           {loading ? (
             <div>Loading...</div>

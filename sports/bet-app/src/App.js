@@ -22,10 +22,13 @@ function App() {
 
         <Route path="/" element={<Home/>} />
         <Route path="/games" element={<Games />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/auth/signup" element={<SignUp/>} />
         <Route path="/auth/signin" element={<SignIn/>} />
-
+      { isLoggedIn &&
+        <>
+          <Route path="/profile" element={<Profile />} />
+        </>
+      }
         </Routes>
     </div>
   );
