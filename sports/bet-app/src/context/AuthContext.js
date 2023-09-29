@@ -1,15 +1,18 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { isTokenValid } from '../api/auth';
+import { useNavigate } from 'react-router';
 
 export const AuthContext = createContext(null);
 
 function AuthContextProvider({children}) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
+    navigate('/')
   };
 
   useEffect(() => {

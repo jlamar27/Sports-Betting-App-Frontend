@@ -97,7 +97,7 @@ function Signin() {
           </div>
           <br />
           <span className="log-in-question">
-            { `Don't have an account?`}
+            { `Don't have an account? `}
             <Link to="/auth/signup">Sign up</Link>
          </span>
         </form>

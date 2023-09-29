@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BetSlip from "./BetSlip";
-import Game from "./Game"; // Make sure to import the Game component here
+import Game from "./Game";
+import '../fonts/espn.woff'; 
+
 
 function Games() {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
   const [betSlip, setBetSlip] = useState([]);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -44,7 +47,8 @@ function Games() {
     
     <div className="Games-container">
       <header className="Games">
-        <h1>NFL Matches</h1>
+        <h1 className="gameday-gold">Gameday Gold</h1>
+        <p className="nfl-match">NFL Matches</p>
         <div className="content-container">
           {loading ? (
             <div>Loading...</div>
