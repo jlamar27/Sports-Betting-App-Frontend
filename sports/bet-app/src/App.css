@@ -1,8 +1,24 @@
+a {
+  color: white;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(43, 230, 121);
+
+}
+
+#text{
+  color: #ddd;
+}
+
 @font-face {
   font-family: 'MyFont'; /* This is the name you'll use in your CSS rules */
   src: url('./fonts/espn.woff') format('woff'); /* Specify the WOFF format */
   font-weight: normal;
   font-style: normal;
+
 }
 
 .App {
@@ -10,7 +26,7 @@
   font-family: Arial, sans-serif;
   background-color: #282c34; /* Set the background color here */
   height: 100vh;
-  overflow: scroll;
+  overflow:scroll;
 }
 
 
@@ -23,6 +39,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 .home-header{
   font-family: 'Staatliches', sans-serif;
 }
@@ -108,16 +125,19 @@
 }
 
 .faq-section {
-  margin-top: 15px;
-  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 5px;
   padding: 20px;
   background-color: white;
   border: 3px solid #f2fe0a;
   border-radius: 10px;
   opacity: 80%;
   width: 40vw;
+  height: 60vh;
   display: inline-block;
 }
+
 
 .faq-section >h2 {
   font-family: 'Staatliches', sans-serif;
@@ -130,9 +150,9 @@
   letter-spacing: 1.2px;
   font-size: 2vh;
 }
-
-.faq-item p {
-  margin-top: 10px;
+.faq-section >h1{
+  margin-top: -15px;
+  margin-bottom: -10px;
 }
 
 .Games-container {
@@ -508,7 +528,7 @@
 }
 .log-in-question 
 {
-  color: #ddd;
+  color: #fff !important;
 }
 .Sign-up-question
 {
@@ -524,6 +544,46 @@
   background-position: center;
   background-size: cover;
 }
+
+/* Navbar */
+.medal{
+  width: 40px;
+  height: auto;
+}
+/* Navbar Container */
+.nav-bar {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  background-color: #333; /* Background color for the Navbar */
+  padding: 10px 20px; /* Add padding to the Navbar */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Logo (Medal) */
+.medal {
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation Buttons */
+.nav {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff !important;/* Default text color */
+  font-size: 1.2em; /* Adjust the font size as needed */
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease-out; /* Smooth text color transition */
+  margin-left: 10px; /* Add some spacing between buttons */
+  text-align: right; /* Align buttons to the right */
+}
+
+/* Hover Effect (Text Color Pink) */
+.nav:hover {
+  color: #ff009b; /* Pink text color on hover */
+=======
 /* CSS games page */
 .team-name {
   font-family: 'Anton', sans-serif;
@@ -565,5 +625,4 @@
   color: #fbfbfa;
   letter-spacing: 1px;
   font-size: 25px;
-
 }
