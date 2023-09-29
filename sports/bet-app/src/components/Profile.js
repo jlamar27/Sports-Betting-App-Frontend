@@ -195,10 +195,6 @@ function Profile() {
         <h3>Bet History:</h3>
         {betHistory.map((bet, index) => (
           <Bet key={index} bet={bet}/>
-          // <div key={index}>
-          //   <p>{bet.betType} - {bet.team} : {bet.betValue} ({bet.price})</p>
-          //   <p>Outcome: {bet.outcome}</p>
-          // </div>
         ))}
       </div>
     </div>
